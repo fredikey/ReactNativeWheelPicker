@@ -16,8 +16,8 @@ You can clone the repo and run example from ./example folder
 
 `yarn add react-native-wheel-picker-android`
 
-![](./src/assets/pickerAndroid.gif)
-![](./src/assets/pickerIos.gif)
+![](assets/pickerAndroid.gif)
+![](assets/pickerIos.gif)
 
 ## Automatic Installation
 

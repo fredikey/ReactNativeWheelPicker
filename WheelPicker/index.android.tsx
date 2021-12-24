@@ -4,7 +4,7 @@ import { IWheelPickerAndroidProps } from './types'
 
 const WheelPickerView = requireNativeComponent('WheelPicker', null)
 
-export default class WheelPicker extends React.Component<IWheelPickerAndroidProps> {
+export class WheelPicker extends React.Component<IWheelPickerAndroidProps> {
   static defaultProps = {
     style: {
       width: 'auto',

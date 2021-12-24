@@ -3,7 +3,7 @@ import {View} from "react-native"
 import {Picker} from "@react-native-community/picker"
 import { IWheelPickerProps } from './types'
 
-const WheelPicker = (props: IWheelPickerProps) => {
+export const WheelPicker = (props: IWheelPickerProps) => {
   const [selectedItem, setSelectedItem] = useState(props.selectedItem || 0);
   const { data, onItemSelected, disabled } = props;
   if (!data || data.length === 0) return null;
@@ -24,5 +24,3 @@ const WheelPicker = (props: IWheelPickerProps) => {
     </View>
   );
 };
-
-export default WheelPicker;
