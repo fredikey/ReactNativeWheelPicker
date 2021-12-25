@@ -1,14 +1,13 @@
-import {StyleProp, ViewStyle} from 'react-native'
+import { PickerIOS } from "@react-native-community/picker"
 
-export interface IWheelPickerProps {
+interface IWheelBasePickerProps {
 	data: Array<string>;
 	selectedItem?: number;
 	onItemSelected?: Function;
 	disabled?: boolean;
-	style?: StyleProp<ViewStyle>
 }
 
-export interface IWheelPickerAndroidProps extends IWheelPickerProps {
+export interface IWheelPickerAndroidProps extends IWheelBasePickerProps {
 	isCyclic?: boolean,
 	selectedItemTextColor?: string
 	selectedItemTextSize?: number
@@ -22,3 +21,4 @@ export interface IWheelPickerAndroidProps extends IWheelPickerProps {
 	itemTextFontFamily: string;
 }
 
+export interface IWheelPickerIOSProps extends IWheelBasePickerProps, Partial<PickerIOS['props']> {}

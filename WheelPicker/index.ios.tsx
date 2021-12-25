@@ -1,26 +1,28 @@
-import React, {useState} from "react"
-import {View} from "react-native"
-import {Picker} from "@react-native-community/picker"
-import { IWheelPickerProps } from './types'
+import React, { useCallback, useState } from "react"
+import { PickerIOS } from "@react-native-community/picker"
+import { IWheelPickerIOSProps } from './types'
 
-export const WheelPicker = (props: IWheelPickerProps) => {
-  const [selectedItem, setSelectedItem] = useState(props.selectedItem || 0);
-  const { data, onItemSelected, disabled } = props;
+export const WheelPicker = ({data, onItemSelected, disabled, selectedItem, ...otherProps}: IWheelPickerIOSProps) => {
+  const [selectedValue, setSelectedValue] = useState(selectedItem || 0);
+  
+  const onValueChange: IWheelPickerIOSProps['onValueChange'] = useCallback((value) => {
+		  onItemSelected && onItemSelected(value)
+		  setSelectedValue(value);
+  }, [])
+  
   if (!data || data.length === 0) return null;
+  
+  
+  
   return (
-    <View pointerEvents={disabled ? "none" : "auto"}>
-      <Picker
-        {...props}
-        selectedValue={data[selectedItem]}
-        onValueChange={(value, index): void => {
-          if (onItemSelected) onItemSelected(index);
-          setSelectedItem(index);
-        }}
-      >
-        {data.map((i, index) => (
-          <Picker.Item key={index} label={i} value={i} />
-        ))}
-      </Picker>
-    </View>
+	  <PickerIOS
+		  selectedValue={data[selectedValue]}
+		  onValueChange={onValueChange}
+		  {...otherProps}
+	  >
+		  {data.map((item, idx) => (
+			  <PickerIOS.Item key={idx} label={item} value={idx} />
+		  ))}
+	  </PickerIOS>
   );
 };

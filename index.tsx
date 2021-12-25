@@ -1,6 +1,6 @@
 import { WheelPicker } from './WheelPicker'
-import { IWheelPickerProps, IWheelPickerAndroidProps } from './WheelPicker/types'
+import { IWheelPickerIOSProps, IWheelPickerAndroidProps } from './WheelPicker/types'
 
-export type { IWheelPickerAndroidProps, IWheelPickerProps}
+export type { IWheelPickerAndroidProps, IWheelPickerIOSProps}
 
 export { WheelPicker }
