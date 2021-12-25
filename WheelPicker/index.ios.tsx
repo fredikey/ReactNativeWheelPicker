@@ -16,7 +16,7 @@ export const WheelPicker = ({data, onItemSelected, disabled, selectedItem, ...ot
   
   return (
 	  <PickerIOS
-		  selectedValue={data[selectedValue]}
+		  selectedValue={selectedValue}
 		  onValueChange={onValueChange}
 		  {...otherProps}
 	  >
