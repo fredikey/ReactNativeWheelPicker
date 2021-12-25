@@ -1,4 +1,4 @@
-import { PickerIOS } from "@react-native-community/picker"
+import { PickerIOS } from "@react-native-picker/picker"
 
 interface IWheelBasePickerProps {
 	data: Array<string>;

@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react"
-import { PickerIOS } from "@react-native-community/picker"
+import { PickerIOS } from "@react-native-picker/picker"
 import { IWheelPickerIOSProps } from './types'
 
 export const WheelPicker = ({data, onItemSelected, disabled, selectedItem, ...otherProps}: IWheelPickerIOSProps) => {
