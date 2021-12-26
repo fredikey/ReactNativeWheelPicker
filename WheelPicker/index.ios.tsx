@@ -1,23 +1,14 @@
-import React, { useCallback, useState } from "react"
-import { PickerIOS } from "@react-native-picker/picker"
-import { IWheelPickerIOSProps } from './types'
+import React from "react"
+import {PickerIOS} from "@react-native-picker/picker"
+import {IWheelPickerIOSProps} from './types'
 
 export const WheelPicker = ({data, onItemSelected, disabled, selectedItem, ...otherProps}: IWheelPickerIOSProps) => {
-  const [selectedValue, setSelectedValue] = useState(selectedItem || 0);
-  
-  const onValueChange: IWheelPickerIOSProps['onValueChange'] = useCallback((value) => {
-		  onItemSelected && onItemSelected(value)
-		  setSelectedValue(value);
-  }, [])
-  
   if (!data || data.length === 0) return null;
-  
-  
   
   return (
 	  <PickerIOS
-		  selectedValue={selectedValue}
-		  onValueChange={onValueChange}
+		  selectedValue={selectedItem || 0}
+		  onValueChange={onItemSelected}
 		  {...otherProps}
 	  >
 		  {data.map((item, idx) => (
